@@ -1,6 +1,7 @@
 #!/bin/bash
 
-CRATE_NAME=$(cargo get -n) 
+# Looks for `name = "crate_name"`, gets the third word (`"crate_name"`) and removes the quotes.
+CRATE_NAME=$(grep name Cargo.toml | awk '{ print $3 }' | tr -d '"')
 
 cargo build --release --target wasm32-unknown-unknown
 

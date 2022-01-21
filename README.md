@@ -1,4 +1,5 @@
 # Bevy WASM
+
 Scripts to setup, build and serve a bevy project in the browser.
 
 ## How to use
@@ -15,7 +16,6 @@ This will:
 + `cargo install` the following binaries if not already installed:
   + `wasm-bindgen-cli`
   + `basic-http-server`
-  + `cargo-get`
 + Create a basic HTML file at `wasm/index.html` if one does not already exist
 + Add the rust cross-compilation target `wasm32-unknown-unknown`
 

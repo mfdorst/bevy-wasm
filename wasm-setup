@@ -24,17 +24,14 @@ if ! command -v basic-http-server &> /dev/null; then
     cargo install basic-http-server
 fi
 
-# Install cargo-get if not installed
-if ! command -v cargo-get &> /dev/null; then
-    echo "Installing cargo-get"
-    cargo install cargo-get
-fi
-
 # Create wasm folder if it doesn't already exist
 if ! [ -d wasm ]; then
     echo "Creating folder 'wasm'"
     mkdir wasm
 fi
+
+# Looks for `name = "crate_name"`, gets the third word (`"crate_name"`) and removes the quotes.
+CRATE_NAME=$(grep name Cargo.toml | awk '{ print $3 }' | tr -d '"')
 
 # Create wasm/index.html if it doesn't already exist
 if ! [ -f wasm/index.html ]; then
@@ -63,7 +60,7 @@ if ! [ -f wasm/index.html ]; then
     </style>
 </head>
 <script type="module">
-    import init from './target/bevy_scratch.js'
+    import init from './target/${CRATE_NAME}.js'
     init()
 </script>
 
