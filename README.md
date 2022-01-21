@@ -1,5 +1,5 @@
 # Bevy WASM
-Scripts to setup, build and serve a bevy project on the web.
+Scripts to setup, build and serve a bevy project in the browser.
 
 ## How to use
 
